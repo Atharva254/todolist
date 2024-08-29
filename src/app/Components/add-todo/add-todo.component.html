@@ -1,0 +1,28 @@
+<div class="my-3">
+  <h3>Add a task!</h3>
+  <form (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="Title" class="form-label">Title</label>
+      <input
+        name="title"
+        type="text"
+        [(ngModel)]="title"
+        class="form-control"
+        id="title"
+        placeholder="Learn python"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="Description" class="form-label">Description</label>
+      <textarea
+        name="title"
+        class="form-control"
+        id="description"
+        [(ngModel)]="description"
+        rows="3"
+        placeholder="Spend 10 hours learning python"
+      ></textarea>
+    </div>
+    <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+  </form>
+</div>
