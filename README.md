@@ -1,2 +1,2 @@
 # todolist
-A to-do list website
+A single page to-do list website
