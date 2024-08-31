@@ -1,7 +1,11 @@
 <app-add-todo (taskAdd)="addTaskToList($event)"></app-add-todo>
-<div *ngFor="let task of tasks">
+
+<div style="overflow-y: scroll; height:300px;">
+<div *ngFor="let task of classRef.tasks">
   <app-todo-item
     [task]="task"
     (taskDelete)="deleteTaskFromList($event)"
   ></app-todo-item>
+  <hr>
+</div>
 </div>

@@ -19,10 +19,20 @@
         class="form-control"
         id="description"
         [(ngModel)]="description"
-        rows="3"
+        rows="1"
         placeholder="Spend 10 hours learning python"
       ></textarea>
     </div>
+
+    <label for="Task type" class="form-label">Select task type</label>
+    <select name="TaskType" class="form-select" [(ngModel)]="taskType">
+      <option *ngFor="let taskType of taskTypes"
+              [value]="taskType">
+        {{[taskType]}}
+      </option>
+    </select>
+    <br>
+
     <button type="submit" class="btn btn-sm btn-primary">Submit</button>
   </form>
 </div>

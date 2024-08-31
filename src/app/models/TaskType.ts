@@ -1,5 +1,5 @@
 export enum TaskType{
-    "Learning",
-    "Health",
-    "Travel"
+    "l" = "Learning",
+    "h" = "Health",
+    "t" = "Travel"
 }

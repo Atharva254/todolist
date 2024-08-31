@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Task } from '../../models/Task';
 import { CommonModule } from '@angular/common';
+import { TaskType } from '../../models/TaskType';
 
 @Component({
   selector: 'app-todo-item',

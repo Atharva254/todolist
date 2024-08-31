@@ -13,33 +13,38 @@ import { AddTodoComponent } from '../add-todo/add-todo.component';
   styleUrl: './todos.component.scss',
 })
 export class TodosComponent implements OnInit {
+  public classRef = TodosComponent;
+  static tasks: Task[] = [
+    {
+      serialNo: 1,
+      title: 'Complete this app',
+      description: 'Complete this angular app',
+      completed: false,
+      type: TaskType.l,
+    },
+    {
+      serialNo: 2,
+      title: 'Exercise',
+      description: 'Full body workout',
+      completed: false,
+      type: TaskType.h,
+    },
+    {
+      serialNo: 3,
+      title: 'Travel',
+      description: 'Travel to places',
+      completed: false,
+      type: TaskType.t,
+    },
+  ];
   addTaskToList(taskToBeAdded: Task) {
     console.log('adding task');
-    this.tasks.push(taskToBeAdded);
+    TodosComponent.tasks.push(taskToBeAdded);
   }
   deleteTaskFromList(taskToBeDeleted: Task) {
-    const indexOfTask = this.tasks.indexOf(taskToBeDeleted);
-    this.tasks.splice(indexOfTask, 1);
+    const indexOfTask = TodosComponent.tasks.indexOf(taskToBeDeleted);
+    TodosComponent.tasks.splice(indexOfTask, 1);
   }
 
-  tasks: Task[];
-  constructor() {
-    this.tasks = [
-      {
-        serialNo: '1',
-        title: 'Complete this app',
-        description: 'Complete this angular app',
-        completed: false,
-        type: TaskType.Learning,
-      },
-      {
-        serialNo: '2',
-        title: 'Learn angular',
-        description: 'Learn more angular concepts',
-        completed: false,
-        type: TaskType.Learning,
-      },
-    ];
-  }
   ngOnInit(): void {}
 }

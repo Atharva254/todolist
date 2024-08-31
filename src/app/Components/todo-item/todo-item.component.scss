@@ -1,0 +1,44 @@
+/* Base style for all task types */
+.task-style {
+    padding: 2%;
+    outline-style: groove;
+    outline-width: 2px;
+    outline-color: black;
+    overflow: hidden;
+    box-sizing: border-box;
+    margin: 5px;
+    transition: max-height 0.9s ease-out, padding 0.6s ease-out;
+    max-height: 50px; /* Adjust to show only the title by default */
+}
+
+/* Styles for specific task types */
+.learning-background {
+    background: #fff1ac;
+}
+
+.travel-background {
+    background: #b5e7fd;
+}
+
+.health-background {
+    background: #caf6a1;
+}
+
+/* Style for the details section (initially hidden) */
+.task-style .task-details {
+    opacity: 0;
+    max-height: 0;
+    transition: opacity 0.9s ease-out, max-height 0.9s ease-out;
+    overflow: hidden;
+}
+
+/* Expand the div and reveal details on hover */
+.task-style:hover {
+    max-height: 500px; /* Adjust to fit the content */
+    padding-bottom: 10px; /* Optional: add some space when expanded */
+}
+
+.task-style:hover .task-details {
+    opacity: 1;
+    max-height: 200px; /* Adjust to fit the content */
+}

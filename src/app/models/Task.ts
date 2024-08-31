@@ -2,7 +2,7 @@ import { TaskType } from "./TaskType"
 
 
 export class Task{
-    serialNo: string
+    serialNo: number
     title: string
     type: TaskType
     description: string
