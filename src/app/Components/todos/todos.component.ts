@@ -4,6 +4,7 @@ import { TaskType } from '../../models/TaskType';
 import { CommonModule } from '@angular/common';
 import { TodoItemComponent } from '../todo-item/todo-item.component';
 import { AddTodoComponent } from '../add-todo/add-todo.component';
+import { TodoListConstants } from '../../contants/TodoListConstants';
 
 @Component({
   selector: 'app-todos',
@@ -14,36 +15,34 @@ import { AddTodoComponent } from '../add-todo/add-todo.component';
 })
 export class TodosComponent implements OnInit {
   public classRef = TodosComponent;
-  static tasks: Task[] = [
-    {
-      serialNo: 1,
-      title: 'Complete this app',
-      description: 'Complete this angular app',
-      completed: false,
-      type: TaskType.l,
-    },
-    {
-      serialNo: 2,
-      title: 'Exercise',
-      description: 'Full body workout',
-      completed: false,
-      type: TaskType.h,
-    },
-    {
-      serialNo: 3,
-      title: 'Travel',
-      description: 'Travel to places',
-      completed: false,
-      type: TaskType.t,
-    },
-  ];
+  static tasks: Task[];
+  localTasksItem: string | null;
+  constructor() {
+    this.localTasksItem = localStorage.getItem(TodoListConstants.tasksListLocalItemName);
+    if(this.localTasksItem === null){
+      TodosComponent.tasks = []
+    }else{
+      TodosComponent.tasks = JSON.parse(this.localTasksItem);
+    }
+  }
+  /**
+   * Method to add task to list
+   * @param taskToBeAdded Task to be added to list
+   */
   addTaskToList(taskToBeAdded: Task) {
     console.log('adding task');
     TodosComponent.tasks.push(taskToBeAdded);
+    localStorage.setItem(TodoListConstants.tasksListLocalItemName, JSON.stringify(TodosComponent.tasks))
   }
+
+  /**
+   * Method to delete task from list
+   * @param taskToBeDeleted Task to be removed from list
+   */
   deleteTaskFromList(taskToBeDeleted: Task) {
     const indexOfTask = TodosComponent.tasks.indexOf(taskToBeDeleted);
     TodosComponent.tasks.splice(indexOfTask, 1);
+    localStorage.setItem(TodoListConstants.tasksListLocalItemName, JSON.stringify(TodosComponent.tasks))
   }
 
   ngOnInit(): void {}
