@@ -11,6 +11,7 @@
   },
   "private": true,
   "dependencies": {
+    "node.js" : "~20.17.0",
     "typescript": "~5.5.2",
     "@angular/cli": "^18.2.1",
     "@angular/compiler-cli": "^18.2.0",
