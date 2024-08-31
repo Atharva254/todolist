@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "booking-website": {
+    "todo-list": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/booking-website",
+            "outputPath": "dist/todo-list",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -68,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "booking-website:build:production"
+              "buildTarget": "todo-list:build:production"
             },
             "development": {
-              "buildTarget": "booking-website:build:development"
+              "buildTarget": "todo-list:build:development"
             }
           },
           "defaultConfiguration": "development"
